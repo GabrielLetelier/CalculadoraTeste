@@ -33,6 +33,21 @@ export default function App() {
     }
   }
 
+  function revertSignal(){
+    const splitNumbers = currentNumber.split(' ')
+    const operator = splitNumbers[1]
+    console.log(operator) // Mostra no Console a tecla pressionada
+    if (operator =='+'){
+      setCurrentNumber (currentNumber.replace('+', '-'))
+      console.log('1') // Mostra no Console a tecla pressionada
+    }
+
+    if (operator =='-'){
+      setCurrentNumber (currentNumber.replace('-', '+'))
+      console.log('2') // Mostra no Console a tecla pressionada
+    }
+  }
+
   function handleInput(buttonPressed){
     console.log(buttonPressed) // Mostra no Console a tecla pressionada
     if(buttonPressed === '+' | buttonPressed === "-" | buttonPressed === "x" | buttonPressed === "/" ){
@@ -52,6 +67,7 @@ export default function App() {
         calculator()
         return
       case '+/-':
+        revertSignal()
         return
     }
 
